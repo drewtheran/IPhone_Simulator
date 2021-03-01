@@ -40,7 +40,7 @@ int circuit_touch_time_activate() {
 
 //The Famous Button Effect
 int simulator_sleepmode() {
-    if (circuit_touch_time_activated = true) {
+    if ((circuit_touch_time_activated = true) && (power_on = true)) {
         circuit_touch_void_time = 10;
     }
     else {
@@ -48,4 +48,13 @@ int simulator_sleepmode() {
     }
 }
 
-
+int circuit_touch_time_activate_deactivate() {
+    if ((circuit_touch_void_time = 10) && (power_on = true)) {
+        if (button_pressed = false) {
+            std::cout << "IPhone will go to sleep in 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, Sleep Mode!\n";
+        }
+    }
+    else {
+        nullptr;
+    }
+}
