@@ -1,60 +1,77 @@
 #include <iostream>
 #include "IPhone_Simulator.hpp"
+#include <string>
 
-int user = 1;
-int power_button_press_time = 0;
-bool circuit_touch = false;
-int circuit_touch_void_time = 10;
-bool button_pressed = false;
-bool circuit_touch_time_activated = false;
-bool power_on = false;
+int user;
+bool home_button_pressed;
+bool home_button_pressed_twice;
+bool power_on;
+bool power_button_pressed;
+bool upper_volume_button;
+bool lower_volume_button;
+bool silent_button_left;
+bool silent_button_right;
+bool silent_mode;
+bool tabs_display_mode;
+bool passcode_display;
+bool passcode_entered;
+
+
+void introduction() {
+    std::cout << "press [Enter] to begin: ";
+    std::cin.ignore();
+}
 
 
 //Power On and Off
-int simulator_on() {
-
-    bool power_on = false;
-
-    if (power_button_press_time >= 5) {
-        for (int i = 0; i <= 100; i++) {
-            power_on = true;
-            std::cout << "Phone Simulator is On.\n";
-        }
+void power_button() {
+    if ((power_on == false) && (power_button_pressed == true)) {
+        std::cout << "Phone Simulator is On.\n";
     }
-    else {
-        power_on = false;
+    else if ((power_on == true) && (power_button_pressed = true)) {
+        std::cout << "Phone Simulator is Off.\n";
     }
 }
 
-//Circuit Touch Time Activation
-int circuit_touch_time_activate() {
-    bool power_on = true;
-    if ((power_on = true) && (button_pressed = true)) {
-        circuit_touch_time_activated = false;
-    }
-    else {
-        circuit_touch_time_activated = true;
-    }
 
-}
+void volume_control() {
+    if ((power_on == true) && (upper_volume_button == true) && (lower_volume_button) == false) {
+        
+    }
+    else if ((power_on == true) && (upper_volume_button == false) && (lower_volume_button == true)) {
 
-//The Famous Button Effect
-int simulator_sleepmode() {
-    if ((circuit_touch_time_activated = true) && (power_on = true)) {
-        circuit_touch_void_time = 10;
     }
     else {
         nullptr;
+    } 
+}
+
+void silent_switch() {
+    if ((power_on == true) && (silent_button_left == true) && (silent_button_right == false)) {
+        silent_mode = true;
+    }
+    else if ((power_on == true) && (silent_button_left == false) && (silent_button_right == true)) {
+        silent_mode = false;
     }
 }
 
-int circuit_touch_time_activate_deactivate() {
-    if ((circuit_touch_void_time = 10) && (power_on = true)) {
-        if (button_pressed = false) {
-            std::cout << "IPhone will go to sleep in 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, Sleep Mode!\n";
+void home_button() {
+    if (power_on == true) {
+        if (home_button_pressed == true) {
+            std::cout << "Enter Passcode\n";
+            if (passcode_entered = true) {
+                std::cout << "Welcome to the homescreen!";
+                if (home_button_pressed_twice) {
+                    tabs_display_mode = true;
+                }
+            }
         }
     }
-    else {
-        nullptr;
+}
+
+void homescreen_display() {
+    if ((power_on = true) && (passcode_entered = true)) {
+        
     }
 }
+
